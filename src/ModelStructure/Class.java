@@ -1,35 +1,36 @@
 package ModelStructure;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class Class {
-    private int id;
-    private String name;
+    private String className;
+    private String classroom;
     private Teacher teacher;
     private List<Student> students;
 
-    public Class(int id, String name, Teacher teacher, List<Student> students) {
-        this.id = id;
-        this.name = name;
+    public Class(String className, String classroom, Teacher teacher) {
+        this.className = className;
+        this.classroom = classroom;
         this.teacher = teacher;
-        this.students = students;
+        this.students = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
+    public String getClassName() {
+        return className;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
-    public String getName() {
-        return name;
+    public String getClassroom() {
+        return classroom;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClassroom(String classroom) {
+        this.classroom = classroom;
     }
 
     public Teacher getTeacher() {
@@ -44,7 +45,11 @@ public class Class {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
     }
 }
