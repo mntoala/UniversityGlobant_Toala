@@ -53,15 +53,32 @@ public class UniversitySystem {
                 // 1. Teachers Information.
                 case(1):
                     int i=1;
-                    for (Teacher t: university.getTeachers()){
-                        List<Class> classesTaught = university.findClassesByTeacher(t);
-                        t.classesTaught(i,classesTaught);
+                    for (Teacher teacher: university.getTeachers()){
+                        List<Class> classesTaught = university.findClassesByTeacher(teacher);
+                        teacher.classesTaught(i,classesTaught);
                         i++;
                     }
                     break;
 
                 // 2. Classes Information.
                 case(2):
+                    i=1;
+                    System.out.println("\nClass List\n");
+                    for (Class classes: university.getClasses()){
+                        System.out.println(i+". "+classes.getClassName());
+                        i++;
+                    }
+                    System.out.println("\nSelect the class");
+                    int classOption;
+                    try {
+                        classOption = Integer.parseInt(scanner.nextLine());
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        continue;
+                    }
+                    Class aClass= university.getClasses().get(classOption-1);
+                    System.out.println(aClass.toString());
+
                     break;
                 // 3. Add new Student.
                 case(3):

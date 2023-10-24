@@ -52,11 +52,18 @@ public class Class {
     public void removeStudent(Student student) {
         students.remove(student);
     }
+    public String stringStudents(List<Student> students){
+        StringBuilder sb = new StringBuilder();
+        for (Student student: students) {
+            sb.append("   - ").append(student.getName()).append("\n");
+        }
+        return sb.toString();
+    }
     @Override
     public String toString() {
-        return "Class: '" + className + '\'' +
-                ", Classroom: '" + classroom + '\'' +
-                ", Teacher: " + teacher +
-                ", Students: " + students;
+        return "* Class: " + className + '\n' +
+                "  Classroom: " + classroom + '\n' +
+                "  Teacher: " + teacher.getName() + '\n' +
+                "  Students: \n" + stringStudents(students);
     }
 }
