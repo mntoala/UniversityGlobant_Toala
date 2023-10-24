@@ -155,6 +155,19 @@ public class UniversitySystem {
 
                 // 5. Search for a student's classes.
                 case(5):
+                    System.out.println("Students List:");
+                    i=1;
+                    for (Student student: students){
+                        System.out.println(" "+i+". "+student.getName()+" - id: 0"+student.getId());
+                        i++;
+                    }
+                    int numberStudentSelected = University.getIntInput(scanner)-1;
+                    Student studentSelected = students.get(numberStudentSelected);
+                    List<Class> studentSelectedClasses= university.findClassesByStudent(studentSelected);
+                    System.out.println("\n"+studentSelected.getName()+" Classes");
+                    for(Class clase: studentSelectedClasses){
+                        System.out.println(" - "+clase.getClassName());
+                    }
                     break;
                 // 6. Exit System.
                 case(6):
