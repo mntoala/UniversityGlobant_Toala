@@ -1,6 +1,6 @@
 import ModelStructure.*;
 import ModelStructure.Class;
-
+import Validations.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,7 +47,7 @@ public class UniversitySystem {
                     "4. Add new Class.\n" +
                     "5. Search for a student's classes.\n" +
                     "6. Exit System.");
-            int numberOption= University.getIntInput(scanner);
+            int numberOption= universityValidations.getIntInput(scanner);
 
             switch (numberOption){
                 // 1. Teachers Information.
@@ -69,7 +69,7 @@ public class UniversitySystem {
                         i++;
                     }
                     System.out.println("\nSelect the class");
-                    int classOption=University.getIntInput(scanner);
+                    int classOption=universityValidations.getIntInput(scanner);
                     Class aClass= classes.get(classOption-1);
                     System.out.println(aClass.toString());
                     break;
@@ -79,11 +79,11 @@ public class UniversitySystem {
                     System.out.println("\nAdd new student\n");
                     //Student's Information
                     System.out.println("Student's id:");
-                    int newStudentId=University.getIntInput(scanner);
+                    int newStudentId=universityValidations.getIntInput(scanner);
                     System.out.println("Student's name:");
-                    String newStudentName= scanner.nextLine();
+                    String newStudentName= universityValidations.getValidNameInput(scanner);
                     System.out.println("Student's age:");
-                    int newStudentAge=University.getIntInput(scanner);
+                    int newStudentAge=universityValidations.getIntInput(scanner);
                     university.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
                     //Add to a class with a list of an existing classes
                     System.out.println("\nAdd to a class:");
@@ -93,7 +93,7 @@ public class UniversitySystem {
                         i++;
                     }
                     System.out.println("\nSelect the class");
-                    int classOpt=University.getIntInput(scanner);
+                    int classOpt=universityValidations.getIntInput(scanner);
                     Class newStudentClass= classes.get(classOpt-1);
                     //Selecting the last student added
                     int sizeStudent=students.size()-1;
@@ -122,7 +122,7 @@ public class UniversitySystem {
                         System.out.println(" "+i+". "+teacher.getName());
                         i++;
                     }
-                    int teacherSelected= University.getIntInput(scanner);
+                    int teacherSelected= universityValidations.getIntInput(scanner);
                     Teacher teacherNewClass =teachers.get(teacherSelected-1);
                     //Adding the new class
                     Class newClass= new Class(newClassName, newClassRoom, teacherNewClass);
@@ -161,7 +161,7 @@ public class UniversitySystem {
                         System.out.println(" "+i+". "+student.getName()+" - id: 0"+student.getId());
                         i++;
                     }
-                    int numberStudentSelected = University.getIntInput(scanner)-1;
+                    int numberStudentSelected = universityValidations.getIntInput(scanner)-1;
                     Student studentSelected = students.get(numberStudentSelected);
                     List<Class> studentSelectedClasses= university.findClassesByStudent(studentSelected);
                     System.out.println("\n"+studentSelected.getName()+" Classes");

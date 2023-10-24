@@ -59,18 +59,5 @@ public class University {
         return classes;
     }
 
-    public static int getIntInput(Scanner scanner) {
-        int numberInput = 0;
-        boolean validInput = false;
-        while (!validInput) {
-            try {
-                numberInput = Integer.parseInt(scanner.nextLine());
-                validInput = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number.");
-            }
-        }
-        return numberInput;
-    }
 }
 
