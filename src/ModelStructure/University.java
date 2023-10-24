@@ -51,25 +51,14 @@ public class University {
         return teachers;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
-    }
-
     public List<Student> getStudents() {
         return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
     }
 
     public List<Class> getClasses() {
         return classes;
     }
 
-    public void setClasses(List<Class> classes) {
-        this.classes = classes;
-    }
     public static int getIntInput(Scanner scanner) {
         int numberInput = 0;
         boolean validInput = false;

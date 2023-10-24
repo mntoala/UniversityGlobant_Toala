@@ -21,10 +21,6 @@ public class Class {
         return className;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
     public String getClassroom() {
         return classroom;
     }
