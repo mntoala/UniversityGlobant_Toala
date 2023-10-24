@@ -27,7 +27,7 @@ public class UniversitySystem {
         Class ecology= new Class("Ecology","AULA 320", teacher3);
         ecology.addStudent(student3);ecology.addStudent(student4);ecology.addStudent(student5);
         Class ecology2= new Class("Ecology Advanced","AULA 323", teacher3);
-        ecology2.addStudent(student3);ecology2.addStudent(student5);ecology2.addStudent(student6);
+        ecology.addStudent(student3);ecology.addStudent(student5);ecology.addStudent(student6);
 
 
         System.out.println("******** Welcome to the University System ********\n");
