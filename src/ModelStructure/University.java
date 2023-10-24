@@ -2,6 +2,7 @@ package ModelStructure;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class University {
     private List<Teacher> teachers;
@@ -68,6 +69,19 @@ public class University {
 
     public void setClasses(List<Class> classes) {
         this.classes = classes;
+    }
+    public static int getIntInput(Scanner scanner) {
+        int numberInput = 0;
+        boolean validInput = false;
+        while (!validInput) {
+            try {
+                numberInput = Integer.parseInt(scanner.nextLine());
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
+        return numberInput;
     }
 }
 

@@ -42,13 +42,8 @@ public class UniversitySystem {
                     "4. Add new Class.\n" +
                     "5. Search for a student's classes.\n" +
                     "6. Exit System.");
-            int numberOption;
-            try {
-                numberOption = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number.");
-                continue;
-            }
+            int numberOption= University.getIntInput(scanner);
+
             switch (numberOption){
                 // 1. Teachers Information.
                 case(1):
@@ -69,20 +64,43 @@ public class UniversitySystem {
                         i++;
                     }
                     System.out.println("\nSelect the class");
-                    int classOption;
-                    try {
-                        classOption = Integer.parseInt(scanner.nextLine());
-                    } catch (NumberFormatException e) {
-                        System.out.println("Invalid input. Please enter a number.");
-                        continue;
-                    }
+                    int classOption=University.getIntInput(scanner);
                     Class aClass= university.getClasses().get(classOption-1);
                     System.out.println(aClass.toString());
-
                     break;
+
                 // 3. Add new Student.
                 case(3):
+                    System.out.println("\nAdd new student\n");
+                    //Student's Information
+                    System.out.println("Student's id:");
+                    int newStudentId=University.getIntInput(scanner);
+                    System.out.println("Student's name:");
+                    String newStudentName= scanner.nextLine();
+                    System.out.println("Student's age:");
+                    int newStudentAge=University.getIntInput(scanner);
+                    university.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
+                    //Add to a class with a list of an existing classes
+                    System.out.println("\nAdd to a class:");
+                    i=1;
+                    for (Class classes: university.getClasses()){
+                        System.out.println(i+". "+classes.getClassName());
+                        i++;
+                    }
+                    System.out.println("\nSelect the class");
+                    int classOpt=University.getIntInput(scanner);
+                    Class newStudentClass= university.getClasses().get(classOpt-1);
+                    //Selecting the last student added
+                    int sizeStudent=university.getStudents().size()-1;
+                    Student newStudent= university.getStudents().get(sizeStudent);
+                    //Adding student in selected class
+                    newStudentClass.addStudent(newStudent);
+                    //Showing student's classes
+                    List<Class> studentClasses = university.findClassesByStudent(newStudent);
+                    System.out.println("\nNew Student's Information");
+                    newStudent.studentClass(studentClasses);
                     break;
+
                 // 4. Add new Class.
                 case(4):
                     break;
