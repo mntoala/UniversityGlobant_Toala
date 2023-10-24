@@ -6,9 +6,10 @@ public class PartTimeTeacher extends Teacher{
     public PartTimeTeacher(String name, double baseSalary, double activeHoursPerWeek) {
         super(name, baseSalary);
         this.activeHoursPerWeek = activeHoursPerWeek;
+        super.setSalary(getSalary());
     }
     @Override
     public double getSalary() {
-        return super.getSalary()*activeHoursPerWeek;
+      return super.getBaseSalary()*activeHoursPerWeek;
     }
 }

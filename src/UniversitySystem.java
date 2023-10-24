@@ -11,9 +11,9 @@ public class UniversitySystem {
         University university= new University();
         //Teachers
         Teacher teacher1 = new FullTimeTeacher("Dr. Juan Perez",23, 2.3); university.addTeacher(teacher1);
-        Teacher teacher2 = new FullTimeTeacher("Ing. Jeremy Smith",20.5, 5); university.addTeacher(teacher2);
-        Teacher teacher3 = new PartTimeTeacher("Dr. Genesis Black",23, 32); university.addTeacher(teacher3);
-        Teacher teacher4 = new PartTimeTeacher("Ing. Nicky Elliott",20.5, 32); university.addTeacher(teacher4);
+        Teacher teacher2 = new FullTimeTeacher("Ing. Jeremy Smith",23, 5); university.addTeacher(teacher2);
+        Teacher teacher3 = new PartTimeTeacher("Dr. Genesis Black",23, 20); university.addTeacher(teacher3);
+        Teacher teacher4 = new PartTimeTeacher("Ing. Nicky Elliott",23, 20); university.addTeacher(teacher4);
         //Students
         Student student1= new Student(988239487, "Sofia Montenegro", 23); university.addStudent(student1);
         Student student2= new Student(983335486, "Karin Mendez", 20); university.addStudent(student2);
