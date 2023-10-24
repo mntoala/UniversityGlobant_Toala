@@ -52,4 +52,11 @@ public class Class {
     public void removeStudent(Student student) {
         students.remove(student);
     }
+    @Override
+    public String toString() {
+        return "Class: '" + className + '\'' +
+                ", Classroom: '" + classroom + '\'' +
+                ", Teacher: " + teacher +
+                ", Students: " + students;
+    }
 }

@@ -36,6 +36,16 @@ public class University {
         return studentClasses;
     }
 
+    public List<Class> findClassesByTeacher(Teacher teacher) {
+        List<Class> teacherClasses = new ArrayList<>();
+        for (Class aClass : classes) {
+            if (aClass.getTeacher().equals(teacher)) {
+                teacherClasses.add(aClass);
+            }
+        }
+        return teacherClasses;
+    }
+
     public List<Teacher> getTeachers() {
         return teachers;
     }

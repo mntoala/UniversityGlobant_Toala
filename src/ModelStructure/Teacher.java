@@ -1,5 +1,7 @@
 package ModelStructure;
 
+import java.util.List;
+
 public class Teacher implements Employee{
     private String name;
     private double baseSalary;
@@ -29,4 +31,14 @@ public class Teacher implements Employee{
         this.baseSalary = baseSalary;
     }
 
+    public void classesTaught(int i, List<Class> classesTaught) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(i).append(" Teacher: ").append(name).append("\n");
+        sb.append("Salary: ").append(baseSalary).append("\n");
+        sb.append("Clases Taught:\n");
+        for (Class aClass : classesTaught) {
+            sb.append(" - ").append(aClass.getClassName()).append("\n");
+        }
+        System.out.println(sb.toString());
+    }
 }
