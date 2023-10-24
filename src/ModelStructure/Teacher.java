@@ -22,16 +22,8 @@ public class Teacher implements Employee{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getBaseSalary() {
         return baseSalary;
-    }
-
-    public void setBaseSalary(double baseSalary) {
-        this.baseSalary = baseSalary;
     }
 
     public void classesTaught(int i, List<Class> classesTaught) {
