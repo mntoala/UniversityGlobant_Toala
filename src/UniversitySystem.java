@@ -111,7 +111,7 @@ public class UniversitySystem {
                     System.out.println("\nAdd new Class\n");
                     //Student's Information
                     System.out.println("What is the class name?");
-                    String newClassName=scanner.nextLine();
+                    String newClassName=universityValidations.getValidNameInput(scanner);
                     System.out.println("Where is the classroom?");
                     String newClassRoom=scanner.nextLine();
                     //Selecting Teacher

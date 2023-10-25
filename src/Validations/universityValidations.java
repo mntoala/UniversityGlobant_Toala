@@ -10,13 +10,13 @@ public class universityValidations {
             if (validateName(name)) {
                 break;
             } else {
-                System.out.println("Invalid name. Enter only letters and special characters.");
+                System.out.println("Invalid name. Enter correctly name.");
             }
         }
         return name;
     }
     public static boolean validateName(String name) {
-        String regex = "^[a-zA-Z\\p{L}]+$";
+        String regex = "^(?=.*[a-zA-Z\\p{L}])[a-zA-Z\\p{L}0-9\\s]+$";
         return name.matches(regex);
     }
     //validar enteros
@@ -33,6 +33,7 @@ public class universityValidations {
         }
         return numberInput;
     }
+
 
 
 }
