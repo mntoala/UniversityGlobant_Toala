@@ -96,6 +96,38 @@ public class universityValidations {
         }
     }
 
+    //Validar id
+    public static int validateAndAdjustId(Scanner scanner, List<Student> students) {
+        boolean validId = false;
+        int id = 0;
+
+        while (!validId) {
+            // Leer un ID del usuario
+            String inputId = scanner.nextLine();
+            // Eliminar ceros iniciales y verificar la longitud
+            String idString = inputId.replaceFirst("^0+", "");
+            if (idString.length() == 9) {
+                id = Integer.parseInt(idString);
+                // Verificar duplicados
+                boolean isDuplicate = false;
+                for (Student student : students) {
+                    if (student.getId() == id) {
+                        System.out.println("This student ID is already in use. Please enter a new ID:");
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                if (!isDuplicate) {
+                    validId = true;
+                }
+            } else {
+                System.out.println("Invalid student ID. It must have 9 digits. Please enter a new ID:");
+            }
+        }
+
+        return id;
+    }
+
 
 
 }

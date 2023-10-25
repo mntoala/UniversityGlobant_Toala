@@ -4,15 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class University {
-    private static List<Teacher> teachers;
-    private static List<Student> students;
-    private static List<Class> classes;
+    private static List<Teacher> teachers = new ArrayList<>();
+    private static List<Student> students = new ArrayList<>();
+    private static List<Class> classes = new ArrayList<>();
 
-    public University() {
-        teachers = new ArrayList<>();
-        students = new ArrayList<>();
-        classes = new ArrayList<>();
-    }
 
     public static void addTeacher(Teacher teacher) {
         teachers.add(teacher);

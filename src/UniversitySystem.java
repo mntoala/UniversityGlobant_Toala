@@ -14,7 +14,7 @@ public class UniversitySystem {
         Teacher teacher3 = new PartTimeTeacher("Dr. Genesis Black",23, 20); University.addTeacher(teacher3);
         Teacher teacher4 = new PartTimeTeacher("Ing. Nicky Elliott",23, 20); University.addTeacher(teacher4);
         //Students
-        Student student1= new Student(988239487, "Sofia Blum", 23); University.addStudent(student1);
+        Student student1= new Student(988230486, "Sofia Blum", 23); University.addStudent(student1);
         Student student2= new Student(983335486, "Kevin Mendez", 20); University.addStudent(student2);
         Student student3= new Student(988373825, "Soraya Zapata", 21); University.addStudent(student3);
         Student student4= new Student(930307809, "David Suarez", 20); University.addStudent(student4);
@@ -81,7 +81,7 @@ public class UniversitySystem {
                     System.out.println("\nAdd new student\n");
                     //Student's Information
                     System.out.println("Student's id:");
-                    int newStudentId = universityValidations.getIntInput(scanner);
+                    int newStudentId = universityValidations.validateAndAdjustId(scanner,students);
                     System.out.println("Student's name:");
                     String newStudentName = universityValidations.getValidNameInput(scanner);
                     System.out.println("Student's age:");
