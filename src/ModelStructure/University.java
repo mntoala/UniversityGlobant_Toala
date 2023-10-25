@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class University {
-    private List<Teacher> teachers;
-    private List<Student> students;
-    private List<Class> classes;
+    private static List<Teacher> teachers;
+    private static List<Student> students;
+    private static List<Class> classes;
 
     public University() {
         teachers = new ArrayList<>();
@@ -14,19 +14,31 @@ public class University {
         classes = new ArrayList<>();
     }
 
-    public void addTeacher(Teacher teacher) {
+    public static void addTeacher(Teacher teacher) {
         teachers.add(teacher);
     }
 
-    public void addStudent(Student student) {
+    public static void addStudent(Student student) {
         students.add(student);
     }
 
-    public void addClass(Class clase) {
+    public static void addClass(Class clase) {
         classes.add(clase);
     }
 
-    public List<Class> findClassesByStudent(Student student) {
+    public static List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public static List<Student> getStudents() {
+        return students;
+    }
+
+    public static List<Class> getClasses() {
+        return classes;
+    }
+
+    public static List<Class> findClassesByStudent(Student student) {
         List<Class> studentClasses = new ArrayList<>();
         for (Class aClass : classes) {
             if (aClass.getStudents().contains(student)) {
@@ -36,7 +48,7 @@ public class University {
         return studentClasses;
     }
 
-    public List<Class> findClassesByTeacher(Teacher teacher) {
+    public static List<Class> findClassesByTeacher(Teacher teacher) {
         List<Class> teacherClasses = new ArrayList<>();
         for (Class aClass : classes) {
             if (aClass.getTeacher().equals(teacher)) {
@@ -44,18 +56,6 @@ public class University {
             }
         }
         return teacherClasses;
-    }
-
-    public List<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public List<Class> getClasses() {
-        return classes;
     }
 
 }

@@ -8,33 +8,32 @@ import java.util.Scanner;
 public class UniversitySystem {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        University university= new University();
         //Teachers
-        Teacher teacher1 = new FullTimeTeacher("Dr. Juan Perez",23, 2.3); university.addTeacher(teacher1);
-        Teacher teacher2 = new FullTimeTeacher("Ing. Jeremy Smith",23, 5); university.addTeacher(teacher2);
-        Teacher teacher3 = new PartTimeTeacher("Dr. Genesis Black",23, 20); university.addTeacher(teacher3);
-        Teacher teacher4 = new PartTimeTeacher("Ing. Nicky Elliott",23, 20); university.addTeacher(teacher4);
+        Teacher teacher1 = new FullTimeTeacher("Dr. Juan Perez",23, 2.3); University.addTeacher(teacher1);
+        Teacher teacher2 = new FullTimeTeacher("Ing. Jeremy Smith",23, 5); University.addTeacher(teacher2);
+        Teacher teacher3 = new PartTimeTeacher("Dr. Genesis Black",23, 20); University.addTeacher(teacher3);
+        Teacher teacher4 = new PartTimeTeacher("Ing. Nicky Elliott",23, 20); University.addTeacher(teacher4);
         //Students
-        Student student1= new Student(988239487, "Sofia Blum", 23); university.addStudent(student1);
-        Student student2= new Student(983335486, "Kevin Mendez", 20); university.addStudent(student2);
-        Student student3= new Student(988373825, "Soraya Zapata", 21); university.addStudent(student3);
-        Student student4= new Student(930307809, "David Suarez", 20); university.addStudent(student4);
-        Student student5= new Student(938765434, "Melanie Torres", 21); university.addStudent(student5);
-        Student student6= new Student(933838943, "Alex Spencer", 22); university.addStudent(student6);
+        Student student1= new Student(988239487, "Sofia Blum", 23); University.addStudent(student1);
+        Student student2= new Student(983335486, "Kevin Mendez", 20); University.addStudent(student2);
+        Student student3= new Student(988373825, "Soraya Zapata", 21); University.addStudent(student3);
+        Student student4= new Student(930307809, "David Suarez", 20); University.addStudent(student4);
+        Student student5= new Student(938765434, "Melanie Torres", 21); University.addStudent(student5);
+        Student student6= new Student(933838943, "Alex Spencer", 22); University.addStudent(student6);
         //Classes
         Class math1= new Class("Math 1","AULA 114", teacher2);
-        math1.addStudent(student1);math1.addStudent(student2);math1.addStudent(student6); university.addClass(math1);
+        math1.addStudent(student1);math1.addStudent(student2);math1.addStudent(student6); University.addClass(math1);
         Class math2= new Class("Math 2","AULA 116", teacher4);
-        math2.addStudent(student2);math2.addStudent(student3);math2.addStudent(student4); university.addClass(math2);
+        math2.addStudent(student2);math2.addStudent(student3);math2.addStudent(student4); University.addClass(math2);
         Class ecology= new Class("Ecology","AULA 320", teacher3);
-        ecology.addStudent(student3);ecology.addStudent(student4);ecology.addStudent(student5); university.addClass(ecology);
+        ecology.addStudent(student3);ecology.addStudent(student4);ecology.addStudent(student5); University.addClass(ecology);
         Class ecology2= new Class("Ecology Advanced","AULA 323", teacher1);
-        ecology2.addStudent(student3);ecology2.addStudent(student5);ecology2.addStudent(student6); university.addClass(ecology2);
+        ecology2.addStudent(student3);ecology2.addStudent(student5);ecology2.addStudent(student6); University.addClass(ecology2);
 
         //Listas
-        List<Teacher> teachers= university.getTeachers();
-        List<Student> students = university.getStudents();
-        List<Class> classes = university.getClasses();
+        List<Teacher> teachers= University.getTeachers();
+        List<Student> students = University.getStudents();
+        List<Class> classes = University.getClasses();
 
 
         System.out.println("******** Welcome to the University System ********\n");
@@ -54,7 +53,7 @@ public class UniversitySystem {
                 case(1):
                     int i=1;
                     for (Teacher teacher: teachers){
-                        List<Class> classesTaught = university.findClassesByTeacher(teacher);
+                        List<Class> classesTaught = University.findClassesByTeacher(teacher);
                         teacher.classesTaught(i,classesTaught);
                         i++;
                     }
@@ -87,7 +86,7 @@ public class UniversitySystem {
                     String newStudentName = universityValidations.getValidNameInput(scanner);
                     System.out.println("Student's age:");
                     int newStudentAge = universityValidations.getIntInput(scanner);
-                    university.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
+                    University.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
                     //Add to a class with a list of an existing classes
                     System.out.println("\nAdd to a class:");
                     i=1;
@@ -105,7 +104,7 @@ public class UniversitySystem {
                     //Adding student in selected class
                     newStudentClass.addStudent(newStudent);
                     //Showing the student's classes
-                    List<Class> studentClasses = university.findClassesByStudent(newStudent);
+                    List<Class> studentClasses = University.findClassesByStudent(newStudent);
                     System.out.println("\nNew Student's Information");
                     newStudent.studentClass(studentClasses);
                     break;
@@ -140,7 +139,7 @@ public class UniversitySystem {
                     //Entering numbers of students and validate that
                     universityValidations.selectStudentsForClass(scanner,students,newClass);
                     //Adding class to University
-                    university.addClass(newClass);
+                    University.addClass(newClass);
                     break;
 
                 // 5. Search for a student's classes.
@@ -154,7 +153,7 @@ public class UniversitySystem {
                     //Selecting student to show information and validate
                     int numberStudentSelected = universityValidations.getValidIntinRange(scanner, students.size())-1;
                     Student studentSelected = students.get(numberStudentSelected);
-                    List<Class> studentSelectedClasses= university.findClassesByStudent(studentSelected);
+                    List<Class> studentSelectedClasses= University.findClassesByStudent(studentSelected);
                     System.out.println("\n"+studentSelected.getName()+" Classes");
                     for(Class clase: studentSelectedClasses){
                         System.out.println(" - "+clase.getClassName());
