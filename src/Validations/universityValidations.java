@@ -121,7 +121,7 @@ public class universityValidations {
                     validId = true;
                 }
             } else {
-                System.out.println("Invalid student ID. It must have 9 digits. Please enter a new ID:");
+                System.out.println("Invalid student ID. It must have 10 digits and start with 0. Please enter a new ID:");
             }
         }
 
