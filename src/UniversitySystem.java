@@ -69,7 +69,7 @@ public class UniversitySystem {
                         i++;
                     }
                     System.out.println("\nSelect the class");
-                    int classOption=universityValidations.getIntInput(scanner);
+                    int classOption=universityValidations.getValidIntinRange(scanner,classes.size());
                     Class aClass= classes.get(classOption-1);
                     System.out.println(aClass.toString());
                     break;
@@ -93,7 +93,7 @@ public class UniversitySystem {
                         i++;
                     }
                     System.out.println("\nSelect the class");
-                    int classOpt=universityValidations.getIntInput(scanner);
+                    int classOpt=universityValidations.getValidIntinRange(scanner,classes.size());
                     Class newStudentClass= classes.get(classOpt-1);
                     //Selecting the last student added
                     int sizeStudent=students.size()-1;
@@ -122,7 +122,7 @@ public class UniversitySystem {
                         System.out.println(" "+i+". "+teacher.getName());
                         i++;
                     }
-                    int teacherSelected= universityValidations.getIntInput(scanner);
+                    int teacherSelected= universityValidations.getValidIntinRange(scanner, teachers.size());
                     Teacher teacherNewClass =teachers.get(teacherSelected-1);
                     //Adding the new class
                     Class newClass= new Class(newClassName, newClassRoom, teacherNewClass);
@@ -133,22 +133,8 @@ public class UniversitySystem {
                         System.out.println(" "+i+". "+student.getName());
                         i++;
                     }
-                    System.out.println("Select students for the new class (Enter student numbers separated by spaces):");
-                    String input = scanner.nextLine();
-                    String[] studentNumbers = input.split(" ");
-                    for (String number : studentNumbers) {
-                        try {
-                            int studentNumber = Integer.parseInt(number);
-                            if (studentNumber >= 1 && studentNumber <= students.size()) {
-                                Student selectedStudent = students.get(studentNumber - 1);
-                                newClass.addStudent(selectedStudent);
-                            } else {
-                                System.out.println("Invalid student number: " + studentNumber);
-                            }
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid input: " + number);
-                        }
-                    }
+                    //Entering numbers of students and validate that
+                    universityValidations.selectStudentsForClass(scanner,students,newClass);
                     //Adding class to University
                     university.addClass(newClass);
                     break;
@@ -161,7 +147,7 @@ public class UniversitySystem {
                         System.out.println(" "+i+". "+student.getName()+" - id: 0"+student.getId());
                         i++;
                     }
-                    int numberStudentSelected = universityValidations.getIntInput(scanner)-1;
+                    int numberStudentSelected = universityValidations.getValidIntinRange(scanner, students.size())-1;
                     Student studentSelected = students.get(numberStudentSelected);
                     List<Class> studentSelectedClasses= university.findClassesByStudent(studentSelected);
                     System.out.println("\n"+studentSelected.getName()+" Classes");
