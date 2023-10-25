@@ -24,6 +24,7 @@ public class universityValidations {
         String regex = "^(?=.*[a-zA-Z\\p{L}])[a-zA-Z\\p{L}0-9\\s]+$";
         return name.matches(regex);
     }
+
     //validar enteros
     public static int getIntInput(Scanner scanner) {
         int numberInput = 0;
@@ -38,6 +39,7 @@ public class universityValidations {
         }
         return numberInput;
     }
+
     //Validar indices
     public static int getValidIntinRange(Scanner scanner, int max) {
         int numberEntered = 0;
@@ -56,8 +58,8 @@ public class universityValidations {
         } while (!isValid);
         return numberEntered;
     }
-    //validar al menos un estudiante en Add new Class
 
+    //validar al menos un estudiante en Add new Class
     public static void selectStudentsForClass(Scanner scanner, List<Student> students, Class newClass) {
         List<Student> selectedStudents = new ArrayList<>();
 

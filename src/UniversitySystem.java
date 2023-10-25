@@ -63,14 +63,17 @@ public class UniversitySystem {
                 // 2. Classes Information.
                 case(2):
                     i=1;
+                    //Printing class list
                     System.out.println("\nClass List\n");
                     for (Class aclass: classes){
                         System.out.println(i+". "+aclass.getClassName());
                         i++;
                     }
+                    //Choosing class and validate
                     System.out.println("\nSelect the class");
-                    int classOption=universityValidations.getValidIntinRange(scanner,classes.size());
+                    int classOption = universityValidations.getValidIntinRange(scanner,classes.size());
                     Class aClass= classes.get(classOption-1);
+                    //Print details
                     System.out.println(aClass.toString());
                     break;
 
@@ -79,11 +82,11 @@ public class UniversitySystem {
                     System.out.println("\nAdd new student\n");
                     //Student's Information
                     System.out.println("Student's id:");
-                    int newStudentId=universityValidations.getIntInput(scanner);
+                    int newStudentId = universityValidations.getIntInput(scanner);
                     System.out.println("Student's name:");
-                    String newStudentName= universityValidations.getValidNameInput(scanner);
+                    String newStudentName = universityValidations.getValidNameInput(scanner);
                     System.out.println("Student's age:");
-                    int newStudentAge=universityValidations.getIntInput(scanner);
+                    int newStudentAge = universityValidations.getIntInput(scanner);
                     university.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
                     //Add to a class with a list of an existing classes
                     System.out.println("\nAdd to a class:");
@@ -92,6 +95,7 @@ public class UniversitySystem {
                         System.out.println(i+". "+aclass.getClassName());
                         i++;
                     }
+                    //Choosing class and validate
                     System.out.println("\nSelect the class");
                     int classOpt=universityValidations.getValidIntinRange(scanner,classes.size());
                     Class newStudentClass= classes.get(classOpt-1);
@@ -147,6 +151,7 @@ public class UniversitySystem {
                         System.out.println(" "+i+". "+student.getName()+" - id: 0"+student.getId());
                         i++;
                     }
+                    //Selecting student to show information and validate
                     int numberStudentSelected = universityValidations.getValidIntinRange(scanner, students.size())-1;
                     Student studentSelected = students.get(numberStudentSelected);
                     List<Class> studentSelectedClasses= university.findClassesByStudent(studentSelected);
