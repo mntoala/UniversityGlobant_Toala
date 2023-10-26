@@ -1,6 +1,8 @@
-import ModelStructure.*;
-import ModelStructure.Class;
-import Validations.*;
+package View;
+
+import Model.*;
+import Model.Class;
+import Controller.*;
 import java.util.List;
 import java.util.Scanner;
 

@@ -1,4 +1,8 @@
-package ModelStructure;
+package Controller;
+
+import Model.Class;
+import Model.Student;
+import Model.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;

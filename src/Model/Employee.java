@@ -1,4 +1,4 @@
-package ModelStructure;
+package Model;
 
 public interface Employee {
 

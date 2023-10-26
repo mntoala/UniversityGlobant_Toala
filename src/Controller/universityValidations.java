@@ -1,6 +1,6 @@
-package Validations;
-import ModelStructure.*;
-import ModelStructure.Class;
+package Controller;
+import Model.*;
+import Model.Class;
 
 import java.util.ArrayList;
 import java.util.List;

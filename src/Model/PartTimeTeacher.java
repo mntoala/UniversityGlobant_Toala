@@ -1,4 +1,4 @@
-package ModelStructure;
+package Model;
 
 public class PartTimeTeacher extends Teacher{
     private double activeHoursPerWeek;
