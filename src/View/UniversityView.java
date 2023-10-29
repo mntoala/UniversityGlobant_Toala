@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class UniversitySystem {
+public class UniversityView {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         //Teachers
@@ -80,6 +80,7 @@ public class UniversitySystem {
 
                 // 3. Add new Student.
                 case(3):
+
                     System.out.println("\nAdd new student\n");
                     //Student's Information
                     System.out.println("Student's id:");
