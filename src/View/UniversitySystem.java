@@ -83,7 +83,8 @@ public class UniversitySystem {
                     System.out.println("\nAdd new student\n");
                     //Student's Information
                     System.out.println("Student's id:");
-                    int newStudentId = universityValidations.validateAndAdjustId(scanner,students);
+                    int newStudentId = universityValidations.getValidIdInput(scanner,students);
+                    System.out.println(newStudentId);
                     System.out.println("Student's name:");
                     String newStudentName = universityValidations.getValidNameInput(scanner);
                     System.out.println("Student's age:");

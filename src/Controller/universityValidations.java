@@ -124,9 +124,40 @@ public class universityValidations {
                 System.out.println("Invalid student ID. It must have 10 digits and start with 0. Please enter a new ID:");
             }
         }
-
         return id;
     }
+
+    //Validacion id
+    public static int getValidIdInput(Scanner scanner, List<Student> students) {
+        int id = 0;
+        boolean validId = false;
+        while (!validId) {
+            String inputID = scanner.nextLine();
+            if (validateId(inputID)) {
+                id = Integer.parseInt(inputID);
+                // Verificar duplicados
+                boolean isDuplicate = false;
+                for (Student student : students) {
+                    if (student.getId() == id) {
+                        System.out.println("This student ID is already in use. Please enter a new ID:");
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                if (!isDuplicate) {
+                    validId = true;
+                }
+            } else {
+                System.out.println("Invalid ID. Please enter a 10-digit numeric ID.");
+            }
+        }
+        return id;
+    }
+    public static boolean validateId(String input) {
+        return input.matches("^\\d{10}$");
+    }
+    //
+
 
 
 
