@@ -5,7 +5,7 @@ import Model.Class;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class universityValidations {
+public class Validations {
 
     /**
      * Se obtiene y el nombre ingresado por el usuario. Se repite hasta que se ingrese un nombre correcto
