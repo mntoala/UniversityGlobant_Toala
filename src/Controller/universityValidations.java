@@ -156,7 +156,20 @@ public class universityValidations {
     public static boolean validateId(String input) {
         return input.matches("^\\d{10}$");
     }
-    //
+    //Validar lista students id
+    public static void validateStudentList(List<Student> students){
+        int i=1;
+        for (Student student: students){
+            String id= String.valueOf(student.getId());
+            if (id.length()==9){
+                System.out.println(" "+i+". "+student.getName()+" - id: 0"+student.getId());
+                i++;
+            }else if(id.length()==10){
+                System.out.println(" "+i+". "+student.getName()+" - id: "+student.getId());
+                i++;
+            }
+        }
+    }
 
 
 
