@@ -8,6 +8,10 @@ public class PartTimeTeacher extends Teacher{
         this.activeHoursPerWeek = activeHoursPerWeek;
         super.setSalary(getSalary());
     }
+
+    /**
+     * @return Salario diferenciado segun las horas trabajadas por semana
+     */
     @Override
     public double getSalary() {
       return super.getBaseSalary()*activeHoursPerWeek;

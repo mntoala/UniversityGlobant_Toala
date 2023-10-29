@@ -106,7 +106,7 @@ public class UniversitySystem {
                     //Showing the student's classes
                     List<Class> studentClasses = University.findClassesByStudent(newStudent);
                     System.out.println("\nNew Student's Information");
-                    newStudent.studentClass(studentClasses);
+                    newStudent.printStudentClass(studentClasses);
                     break;
 
                 // 4. Add new Class.

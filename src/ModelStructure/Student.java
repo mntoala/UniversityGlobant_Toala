@@ -16,11 +16,14 @@ public class Student {
     public int getId() {
         return id;
     }
-
     public String getName() {
         return name;
     }
-    public void studentClass(List<Class> studentClass) {
+    /**
+     * Imprime los datos del estudiante y la lista de clases recibidas.
+     * @param studentClass - Recibe lista de clases del estudiante
+     */
+    public void printStudentClass(List<Class> studentClass) {
         StringBuilder sb = new StringBuilder();
         sb.append("Name: ").append(name).append("\n");
         sb.append("Id: ").append(id).append("\n");

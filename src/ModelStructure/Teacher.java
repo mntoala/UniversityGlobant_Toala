@@ -14,18 +14,21 @@ public class Teacher implements Employee{
     public double getSalary() {
         return salary;
     }
-
     public void setSalary(double salary) {
         this.salary = salary;
     }
     public String getName() {
         return name;
     }
-
     public double getBaseSalary() {
         return baseSalary;
     }
 
+    /**
+     * Imprime la lista de clases que brinda el mestro
+     * @param i Numero para enumerar el maestro elegido
+     * @param classesTaught lista de clases que da el maestro
+     */
     public void classesTaught(int i, List<Class> classesTaught) {
         StringBuilder sb = new StringBuilder();
         sb.append(i).append(". Teacher: ").append(name).append("\n");
