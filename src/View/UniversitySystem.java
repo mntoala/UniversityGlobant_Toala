@@ -148,11 +148,7 @@ public class UniversitySystem {
                 // 5. Search for a student's classes.
                 case(5):
                     System.out.println("Students List:");
-                    i=1;
-                    for (Student student: students){
-                        System.out.println(" "+i+". "+student.getName()+" - id: 0"+student.getId());
-                        i++;
-                    }
+                    universityValidations.validateStudentList(students);
                     //Selecting student to show information and validate
                     int numberStudentSelected = universityValidations.getValidIntinRange(scanner, students.size())-1;
                     Student studentSelected = students.get(numberStudentSelected);
