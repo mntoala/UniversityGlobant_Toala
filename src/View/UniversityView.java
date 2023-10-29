@@ -48,7 +48,7 @@ public class UniversityView {
                     "4. Add new Class.\n" +
                     "5. Search for a student's classes.\n" +
                     "6. Exit System.");
-            int numberOption= universityValidations.getIntInput(scanner);
+            int numberOption= Validations.getIntInput(scanner);
 
             switch (numberOption){
                 // 1. Teachers Information.
@@ -72,7 +72,7 @@ public class UniversityView {
                     }
                     //Choosing class and validate
                     System.out.println("\nSelect the class");
-                    int classOption = universityValidations.getValidIntinRange(scanner,classes.size());
+                    int classOption = Validations.getValidIntinRange(scanner,classes.size());
                     Class aClass= classes.get(classOption-1);
                     //Print details
                     System.out.println(aClass.toString());
@@ -84,12 +84,12 @@ public class UniversityView {
                     System.out.println("\nAdd new student\n");
                     //Student's Information
                     System.out.println("Student's id:");
-                    int newStudentId = universityValidations.getValidIdInput(scanner,students);
+                    int newStudentId = Validations.getValidIdInput(scanner,students);
                     System.out.println(newStudentId);
                     System.out.println("Student's name:");
-                    String newStudentName = universityValidations.getValidNameInput(scanner);
+                    String newStudentName = Validations.getValidNameInput(scanner);
                     System.out.println("Student's age:");
-                    int newStudentAge = universityValidations.getIntInput(scanner);
+                    int newStudentAge = Validations.getIntInput(scanner);
                     University.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
                     //Add to a class with a list of an existing classes
                     System.out.println("\nAdd to a class:");
@@ -100,7 +100,7 @@ public class UniversityView {
                     }
                     //Choosing class and validate
                     System.out.println("\nSelect the class");
-                    int classOpt=universityValidations.getValidIntinRange(scanner,classes.size());
+                    int classOpt= Validations.getValidIntinRange(scanner,classes.size());
                     Class newStudentClass= classes.get(classOpt-1);
                     //Selecting the last student added
                     int sizeStudent=students.size()-1;
@@ -118,7 +118,7 @@ public class UniversityView {
                     System.out.println("\nAdd new Class\n");
                     //Student's Information
                     System.out.println("What is the class name?");
-                    String newClassName=universityValidations.getValidNameInput(scanner);
+                    String newClassName= Validations.getValidNameInput(scanner);
                     System.out.println("Where is the classroom?");
                     String newClassRoom=scanner.nextLine();
                     //Selecting Teacher
@@ -129,7 +129,7 @@ public class UniversityView {
                         System.out.println(" "+i+". "+teacher.getName());
                         i++;
                     }
-                    int teacherSelected= universityValidations.getValidIntinRange(scanner, teachers.size());
+                    int teacherSelected= Validations.getValidIntinRange(scanner, teachers.size());
                     Teacher teacherNewClass =teachers.get(teacherSelected-1);
                     //Adding the new class
                     Class newClass= new Class(newClassName, newClassRoom, teacherNewClass);
@@ -141,7 +141,7 @@ public class UniversityView {
                         i++;
                     }
                     //Entering numbers of students and validate that
-                    universityValidations.selectStudentsForClass(scanner,students,newClass);
+                    Validations.selectStudentsForClass(scanner,students,newClass);
                     //Adding class to University
                     University.addClass(newClass);
                     break;
@@ -149,9 +149,9 @@ public class UniversityView {
                 // 5. Search for a student's classes.
                 case(5):
                     System.out.println("Students List:");
-                    universityValidations.validateStudentList(students);
+                    Validations.validateStudentList(students);
                     //Selecting student to show information and validate
-                    int numberStudentSelected = universityValidations.getValidIntinRange(scanner, students.size())-1;
+                    int numberStudentSelected = Validations.getValidIntinRange(scanner, students.size())-1;
                     Student studentSelected = students.get(numberStudentSelected);
                     List<Class> studentSelectedClasses= University.findClassesByStudent(studentSelected);
                     System.out.println("\n"+studentSelected.getName()+" Classes");
