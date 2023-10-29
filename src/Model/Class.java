@@ -19,35 +19,35 @@ public class Class {
     public String getClassName() {
         return className;
     }
-
-    public String getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
-    }
-
     public Teacher getTeacher() {
         return teacher;
     }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
     public List<Student> getStudents() {
         return students;
     }
 
+    /**
+     * Agrega estudiante a la lista de estudiantes de la clasa
+     * @param student Estudiante que se agregara
+     */
     public void addStudent(Student student) {
         students.add(student);
     }
 
+    /**
+     * Elimina estudiante de la lista de estudiantes de la clase
+     * @param student Estudiate que se quitara
+     */
     public void removeStudent(Student student) {
         students.remove(student);
     }
-    public String stringStudents(List<Student> students){
+
+    /**
+     * Metodo donde se obtienen el listado imprimible de los estudiantes de una clase
+     * @param students listado de estudiantes pertenecientes a la clase
+     * @return String con la lista de estudiantes ya iterada
+     */
+    public String printStudents(List<Student> students){
         StringBuilder sb = new StringBuilder();
         for (Student student: students) {
             sb.append("   - ").append(student.getName()).append("\n");
@@ -59,6 +59,6 @@ public class Class {
         return "* Class: " + className + '\n' +
                 "  Classroom: " + classroom + '\n' +
                 "  Teacher: " + teacher.getName() + '\n' +
-                "  Students: \n" + stringStudents(students);
+                "  Students: \n" + printStudents(students);
     }
 }
