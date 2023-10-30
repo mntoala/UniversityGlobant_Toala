@@ -16,9 +16,9 @@ This project represents an academic administration system built in Java. It has 
 
 ## Project Structure
 The project is organized into packages and classes as follows:
-- ***ModelStructure**: Contains classes representing the university's structure.
-- ***Controller***: Contains classes and methods that control the application's logic and input validation.
-- ***View***: Contains classes that handle the user interface.
+- **ModelStructure**: Contains classes representing the university's structure.
+- **Controller**: Contains classes and methods that control the application's logic and input validation.
+- **View**: Contains classes that handle the user interface.
 ## Class diagram
 Below is the class diagram that represents the structure and relationships between classes in the university system:<br>
 ![University Final Proyect Globant - Design Diagram](https://github.com/mntoala/UniversityGlobant_Toala/assets/66579043/d25b7ae4-40dd-47b6-8f3d-9934b7d38a82)
