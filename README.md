@@ -21,7 +21,8 @@ The project is organized into packages and classes as follows:
 - ***View***: Contains classes that handle the user interface.
 ## Class diagram
 Below is the class diagram that represents the structure and relationships between classes in the university system:
-[Design Diagram - University Globant Toala](Design Diagram/University Final Proyect Globant - Design Diagram.png)
+![University Final Proyect Globant - Design Diagram](https://github.com/mntoala/UniversityGlobant_Toala/assets/66579043/d25b7ae4-40dd-47b6-8f3d-9934b7d38a82)
+
 
 ## Structure Details
 ### Teacher
