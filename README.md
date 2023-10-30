@@ -1,4 +1,18 @@
 # UniversityGlobant - University Management System
+
+## Table of Contents
+- [Description](#description)
+- [System Requirements](#system-requirements)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Class Diagram](#class-diagram)
+- [Structure Details](#structure-details)
+  - [Teacher](#teacher)
+  - [Student](#student)
+  - [Class](#class)
+- [Contribution](#contribution)
+- [Contact](#contact)
+
 ## Description
 This project represents an academic administration system built in Java. It has been developed with the purpose of facilitating the management of data related to information about teachers, students and classes. In addition, its functionalities include adding students, assigning classes, calculating teacher salaries, and presenting more details about teachers and students.
 
