@@ -78,7 +78,14 @@ public class Validations {
         } while (!isValid);
         return numberEntered;
     }
-    public static void selectClassesForStudent(Scanner scanner, List<Class> classes, Student newStudent) {
+
+    /**
+     * Se valida que al escoger una clase esta se encuentre dentro del rango
+     * @param scanner
+     * @param classes
+     * @param newStudent
+     */
+    public static void validSelecttionClassesForStudent(Scanner scanner, List<Class> classes, Student newStudent) {
         List<Class> selectedClasses = new ArrayList<>();
         do {
             System.out.println("Select classes  (Enter classes numbers separated by spaces):");
