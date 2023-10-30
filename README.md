@@ -59,14 +59,14 @@ The Class class represents a class in the university system. It has the followin
 - teacher: The teacher who teaches the class.
 - students: A list of students attending the class.
 
-### Contribution
+## Contribution
 If you wish to contribute to this project, follow these steps:
 - Fork the repository.
 - Create a new branch for your contribution.
 - Make your changes and ensure tests pass.
 - Submit a pull request to this repository.
 
-### Contact
+## Contact
 Name: Marina Toala<br>
 Email: nicotoala@outlook.com<br>
 LinkedIn: https://www.linkedin.com/in/marina-toala/
