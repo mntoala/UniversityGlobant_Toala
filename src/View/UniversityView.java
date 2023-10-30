@@ -92,6 +92,7 @@ public class UniversityView {
                 case(6):
                     System.out.println("Bye bye!");
                     start= false;
+                    break;
                 // wrong number
                 default:
                     System.out.println("Try again in the specified range");

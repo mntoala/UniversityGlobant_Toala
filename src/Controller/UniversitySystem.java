@@ -53,7 +53,7 @@ public class UniversitySystem {
         System.out.println("Student's name:");
         String newStudentName = Validations.getValidNameInput(scanner);
         System.out.println("Student's age:");
-        int newStudentAge = Validations.getIntInput(scanner);
+        int newStudentAge = Validations.getValidAgeInput(scanner);
         University.addStudent(new Student(newStudentId,newStudentName,newStudentAge));
         addStudentToClass(scanner, classes, students);
     }

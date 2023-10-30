@@ -213,7 +213,27 @@ public class Validations {
             }
         }
     }
+    public static int getValidAgeInput(Scanner scanner) {
+        int age = 0;
+        boolean validAge = false;
+        while (!validAge) {
+            try {
+                age = Integer.parseInt(scanner.nextLine());
+                if (validateAge(age)) {
+                    validAge = true;
+                } else {
+                    System.out.println("Invalid age. Enter a valid age.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number for age.");
+            }
+        }
+        return age;
+    }
 
+    public static boolean validateAge(int age) {
+        return age >= 15 && age <= 100;
+    }
 
 
 
