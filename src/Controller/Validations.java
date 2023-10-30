@@ -213,6 +213,12 @@ public class Validations {
             }
         }
     }
+
+    /**
+     * Se valida que la edad ingresada este entre los 18 y los 100 anios
+     * @param scanner
+     * @return edad
+     */
     public static int getValidAgeInput(Scanner scanner) {
         int age = 0;
         boolean validAge = false;
