@@ -30,7 +30,7 @@ This project represents an academic administration system built in Java. It has 
 
 ## Project Structure
 The project is organized into packages and classes as follows:
-- **ModelStructure**: Contains classes representing the university's structure.
+- **Model**: Contains classes representing the university's structure.
 - **Controller**: Contains classes and methods that control the application's logic and input validation.
 - **View**: Contains classes that handle the user interface.
 ## Class diagram
