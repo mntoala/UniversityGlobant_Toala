@@ -16,12 +16,12 @@ public class UniversityView {
         Teacher teacher3 = new PartTimeTeacher("Dr. Genesis Black",23, 20); University.addTeacher(teacher3);
         Teacher teacher4 = new PartTimeTeacher("Ing. Nicky Elliott",23, 20); University.addTeacher(teacher4);
         //Students
-        Student student1= new Student(988230486, "Sofia Blum", 23); University.addStudent(student1);
-        Student student2= new Student(983335486, "Kevin Mendez", 20); University.addStudent(student2);
-        Student student3= new Student(988373825, "Soraya Zapata", 21); University.addStudent(student3);
-        Student student4= new Student(930307809, "David Suarez", 20); University.addStudent(student4);
-        Student student5= new Student(938765434, "Melanie Torres", 21); University.addStudent(student5);
-        Student student6= new Student(933838943, "Alex Spencer", 22); University.addStudent(student6);
+        Student student1= new Student("988230486", "Sofia Blum", 23); University.addStudent(student1);
+        Student student2= new Student("983335486", "Kevin Mendez", 20); University.addStudent(student2);
+        Student student3= new Student("988373825", "Soraya Zapata", 21); University.addStudent(student3);
+        Student student4= new Student("930307809", "David Suarez", 20); University.addStudent(student4);
+        Student student5= new Student("938765434", "Melanie Torres", 21); University.addStudent(student5);
+        Student student6= new Student("933838943", "Alex Spencer", 22); University.addStudent(student6);
         //Classes
         Class math1= new Class("Math 1","AULA 114", teacher2);
         math1.addStudent(student1);math1.addStudent(student2);math1.addStudent(student6); University.addClass(math1);
@@ -54,17 +54,17 @@ public class UniversityView {
                 // 1. Teachers Information.
                 case(1):
                     int i=1;
-                    UniversirySystem.teacherInformation(teachers);
+                    UniversitySystem.teacherInformation(teachers);
                     break;
 
                 // 2. Classes Information.
                 case(2):
                     //Printing class list
                     System.out.println("\nClass List\n");
-                    UniversirySystem.classList(classes);
+                    UniversitySystem.classList(classes);
                     //Choosing class and validate
                     System.out.println("\nSelect the class");
-                    UniversirySystem.chooseClass(scanner, classes);
+                    UniversitySystem.chooseClass(scanner, classes);
                     break;
 
                 // 3. Add new Student.
@@ -72,61 +72,22 @@ public class UniversityView {
 
                     System.out.println("\nAdd new student\n");
                     //Student's Information
-                    UniversirySystem.getNewStudentInformation(scanner,students);
-                    //Add to a class with a list of an existing classes
-                    UniversirySystem.addStudentToClass(scanner, classes, students);
-                    //get new Student
-                    Student newStudent = UniversirySystem.getNewStudent(students);
+                    UniversitySystem.getAddNewStudentInformation(scanner,students, classes);
                     //Showing the student's classes
-                    UniversirySystem.showStudentClasses(newStudent);
+                    Student newStudent = UniversitySystem.getNewStudent(students);
+                    UniversitySystem.showStudentClasses(newStudent);
                     break;
 
                 // 4. Add new Class.
                 case(4):
-                    System.out.println("\nAdd new Class\n");
-                    //Student's Information
-                    System.out.println("What is the class name?");
-                    String newClassName= Validations.getValidNameInput(scanner);
-                    System.out.println("Where is the classroom?");
-                    String newClassRoom=scanner.nextLine();
-                    //Selecting Teacher
-                    System.out.println("Who is the teacher?");
-                    System.out.println("\nSelect Teacher:");
-                    i=1;
-                    for (Teacher teacher: teachers){
-                        System.out.println(" "+i+". "+teacher.getName());
-                        i++;
-                    }
-                    int teacherSelected= Validations.getValidIntinRange(scanner, teachers.size());
-                    Teacher teacherNewClass =teachers.get(teacherSelected-1);
-                    //Adding the new class
-                    Class newClass= new Class(newClassName, newClassRoom, teacherNewClass);
-                    //Adding Students
-                    System.out.println("\nWho are students in this class?");
-                    i=1;
-                    for (Student student: students){
-                        System.out.println(" "+i+". "+student.getName());
-                        i++;
-                    }
-                    //Entering numbers of students and validate that
-                    Validations.selectStudentsForClass(scanner,students,newClass);
-                    //Adding class to University
-                    University.addClass(newClass);
+                    UniversitySystem.getAddNewClassInformation(scanner,teachers,students);
                     break;
 
                 // 5. Search for a student's classes.
                 case(5):
-                    System.out.println("Students List:");
-                    Validations.validateStudentList(students);
-                    //Selecting student to show information and validate
-                    int numberStudentSelected = Validations.getValidIntinRange(scanner, students.size())-1;
-                    Student studentSelected = students.get(numberStudentSelected);
-                    List<Class> studentSelectedClasses= University.findClassesByStudent(studentSelected);
-                    System.out.println("\n"+studentSelected.getName()+" Classes");
-                    for(Class clase: studentSelectedClasses){
-                        System.out.println(" - "+clase.getClassName());
-                    }
+                    UniversitySystem.searchStudentClasses(scanner,students);
                     break;
+
                 // 6. Exit System.
                 case(6):
                     System.out.println("Bye bye!");
@@ -137,10 +98,6 @@ public class UniversityView {
             }
 
         }
-
-
-
-
         scanner.close();
     }
 }

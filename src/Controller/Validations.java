@@ -78,7 +78,36 @@ public class Validations {
         } while (!isValid);
         return numberEntered;
     }
-
+    public static void selectClassesForStudent(Scanner scanner, List<Class> classes, Student newStudent) {
+        List<Class> selectedClasses = new ArrayList<>();
+        do {
+            System.out.println("Select classes  (Enter classes numbers separated by spaces):");
+            String input = scanner.nextLine();
+            String[] classNumbers = input.split(" ");
+            boolean atLeastOneValid = false;
+            for (String number : classNumbers) {
+                try {
+                    int classNumber = Integer.parseInt(number);
+                    if (classNumber >= 1 && classNumber <= classes.size()) {
+                        Class selectedStudent = classes.get(classNumber - 1);
+                        selectedClasses.add(selectedStudent);
+                        atLeastOneValid = true;
+                    } else {
+                        System.out.println("Invalid class number: " + classNumber);
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input: " + number);
+                }
+            }
+            if (!atLeastOneValid) {
+                System.out.println("You must select at least one valid class.");
+            }
+        } while (selectedClasses.isEmpty());
+        // Add the selected classes for student
+        for (Class selectedClass : selectedClasses) {
+                selectedClass.addStudent(newStudent);
+        }
+    }
     /**
      * Valida que al menos un estudiante esta siendo ingresado a la clase nueva
      * @param scanner
@@ -125,23 +154,22 @@ public class Validations {
      * @param students lista de estudiantes para verificar que no exista previamente ese id
      * @return Devuelve el id del estudiante
      */
-    public static int getValidIdInput(Scanner scanner, List<Student> students) {
-        int id = 0;
+    public static String getValidIdInput(Scanner scanner, List<Student> students) {
+        String id = "";
         boolean validId = false;
         while (!validId) {
             String inputID = scanner.nextLine();
             if (validateId(inputID)) {
-                id = Integer.parseInt(inputID);
-                // Verificar duplicados
                 boolean isDuplicate = false;
                 for (Student student : students) {
-                    if (student.getId() == id) {
+                    if (student.getId().equals(inputID)) {
                         System.out.println("This student ID is already in use. Please enter a new ID:");
                         isDuplicate = true;
                         break;
                     }
                 }
                 if (!isDuplicate) {
+                    id = inputID;
                     validId = true;
                 }
             } else {
